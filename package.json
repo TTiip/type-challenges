@@ -1,0 +1,17 @@
+{
+  "name": "type-challenges",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/TTiip/type-challenges.git",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.20.6",
+    "@type-challenges/utils": "^0.1.1",
+    "eslint": "^8.13.0",
+    "typescript": "^4.6.3"
+  }
+}
