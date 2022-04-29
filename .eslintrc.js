@@ -1,6 +1,8 @@
 module.exports = {
   extends: ['@antfu'],
   rules: {
+    // 调整@typescript-eslint/ban-ts-comment规则， 配备注释时，消除warning
+    '@typescript-eslint/ban-ts-comment': 'off',
     // 关闭箭头函数一定要有返回值
     'array-callback-return': 'off',
     // 关闭定义变量未使用报错
