@@ -1,6 +1,8 @@
 module.exports = {
   extends: ['@antfu'],
   rules: {
+    // 关闭箭头函数一定要有返回值
+    'array-callback-return': 'off',
     // 关闭定义变量未使用报错
     '@typescript-eslint/no-unused-vars': 'off',
     // 参数尽在 需要 () 包裹 时才包裹
