@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Equal, Expect } from '@type-challenges/utils'
 
-const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
+const tuple = ['tesla', 'model 3', 'model X', 'model Y', 1, Symbol(123)] as const
 
 // const let --> js 世界
 // type interface  --> type 世界
@@ -25,11 +24,12 @@ function tupleToObject (arr) {
 // 1.返回一个对象
 // 2.遍历一个数组 T[number] 去遍历
 
-// 下方的 T extends readonly string[] 类型约束是为了限制 T 只能是 readonly string[]
-// 配合 结果匹配时候传入的 typeof tuple 为 readonly string[]
+// 下方的 T extends readonly (string | number | symbol)[] 类型约束是为了限制 T 只能是 readonly (string | number | symbol)[]
+// 配合 结果匹配时候传入的 typeof tuple 为 readonly (string | number | symbol)[]
 
-type TupleToObject<T extends readonly string[]> = {
-  [key in T[number]]: key
+// type 对象的 key 值 有且仅会出现 string | number | symbol 这三种类型。
+type TupleToObject<T extends readonly (string | number | symbol)[]> = {
+  [P in T[number]]: P
 }
 
 type res = TupleToObject<typeof tuple>
@@ -40,8 +40,13 @@ type cases = [
     'model 3': 'model 3'
     'model X': 'model X'
     'model Y': 'model Y'
+    1: 1
+    [symbolKey: symbol]: symbol
   }>>
 ]
+
+// '@ts-expect-error' 是期望下面的语句 抛出错误
+// 如果下方语句没有抛出错误 则 @ts-expect-error 这行会抛出错误
 
 // @ts-expect-error
 type error = TupleToObject<[[1, 2], {}]>
