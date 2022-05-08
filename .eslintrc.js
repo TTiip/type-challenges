@@ -1,6 +1,8 @@
 module.exports = {
   extends: ['@antfu'],
   rules: {
+    // 未使用的变量提示报错
+    '@typescript-eslint/no-unused-vars': 'off',
     // 参数尽在 需要 () 包裹 时才包裹
     'arrow-parens': ['error', 'as-needed'],
     // 关闭 let 转换成 const
