@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Equal, Expect } from '@type-challenges/utils'
 
 interface Todo {
