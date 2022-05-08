@@ -1,12 +1,6 @@
 module.exports = {
   extends: ['@antfu'],
   rules: {
-    // 调整@typescript-eslint/ban-ts-comment规则， 配备注释时，消除warning
-    '@typescript-eslint/ban-ts-comment': 'off',
-    // 关闭箭头函数一定要有返回值
-    'array-callback-return': 'off',
-    // 关闭定义变量未使用报错
-    '@typescript-eslint/no-unused-vars': 'off',
     // 参数尽在 需要 () 包裹 时才包裹
     'arrow-parens': ['error', 'as-needed'],
     // 关闭 let 转换成 const
@@ -18,6 +12,8 @@ module.exports = {
     }],
     // 函数参数 不使用换行
     'function-paren-newline': ['error', 'never'],
+    // 函数左括号前一定要加 空格
+    '@typescript-eslint/space-before-function-paren': ['error', 'always'],
     // 函数左括号前一定要加 空格
     'space-before-function-paren': ['error', 'always'],
     // 当仅有一个判断的时候，必须使用 {} 包裹
@@ -59,7 +55,7 @@ module.exports = {
     // 禁止使用特定的语法
     'no-restricted-syntax': 'off',
     // typescript 关闭逗号检测
-    '@typescript-eslint/comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': ['error', 'never'],
     // 关闭缩进检测
     '@typescript-eslint/indent': 'off',
     // {} 括号和 else 换行风格。
