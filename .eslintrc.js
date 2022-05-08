@@ -1,6 +1,13 @@
 module.exports = {
   extends: ['@antfu'],
   rules: {
+    // 允许代码中出现 下列 注释规则
+    '@typescript-eslint/ban-ts-comment': ['warn', {
+      'ts-expect-error': 'allow-with-description',
+      'ts-ignore': 'allow-with-description',
+      'ts-nocheck': 'allow-with-description',
+      'ts-check': 'allow-with-description'
+    }],
     // 箭头函数一定要有返回值
     'array-callback-return': 'off',
     // 未使用的变量提示报错
